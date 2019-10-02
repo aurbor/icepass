@@ -159,8 +159,11 @@ def index():
 
 @app.route('/', methods=['POST'])
 def handle_password():
-    ttl, password = clean_input()
-    token = set_password(password, ttl)
+    # ttl, password = clean_input()
+    # token = set_password(password, ttl)
+
+    password = clean_input()
+    token = set_password(password)
 
     if NO_SSL:
         base_url = request.url_root
