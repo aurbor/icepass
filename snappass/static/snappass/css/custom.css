@@ -23,3 +23,7 @@ input[readonly].readonly-text {
 .navbar-default .navbar-brand {
     color: #fff;
 }
+
+.btn-primary {
+    background-color: #242663;
+}
