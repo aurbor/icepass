@@ -89,7 +89,7 @@ def parse_token(token):
 
 
 @check_redis_alive
-def set_password(password, ttl):
+def set_password(password):
     """
     Encrypt and store the password for the specified lifetime.
 
@@ -162,7 +162,7 @@ def handle_password():
     # ttl, password = clean_input()
     # token = set_password(password, ttl)
 
-    password = clean_input()
+    password = request.form['password']
     token = set_password(password)
 
     if NO_SSL:
