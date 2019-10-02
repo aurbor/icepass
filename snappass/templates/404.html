@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <section>
+    <div class="page-header">
+      <h1>Oops! Looks like the page doesn't exist anymore</h1>
+    </div>
+    <a href="/"><p>Click Here</a>To go back to the Home Page</p> 
+  </section>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ config.STATIC_URL }}/clipboardjs/clipboard.min.js"></script>
+<script src="{{ config.STATIC_URL }}/snappass/scripts/clipboard_button.js"></script>
+<script src="{{ config.STATIC_URL }}/snappass/scripts/preview.js"></script>
+{% endblock %}

@@ -36,7 +36,7 @@ else:
     redis_db = os.environ.get('SNAPPASS_REDIS_DB', 0)
     redis_client = redis.StrictRedis(
         host=redis_host, port=redis_port, db=redis_db)
-REDIS_PREFIX = os.environ.get('REDIS_PREFIX', 'snappass')
+REDIS_PREFIX = os.environ.get('REDIS_PREFIX', 'icepass')
 
 TIME_CONVERSION = {'week': 604800, 'day': 86400, 'hour': 3600}
 
@@ -159,8 +159,6 @@ def index():
 
 @app.route('/', methods=['POST'])
 def handle_password():
-    # ttl, password = clean_input()
-    # token = set_password(password, ttl)
 
     password = request.form['password']
     token = set_password(password)
@@ -193,6 +191,10 @@ def show_password(password_key):
 
     return render_template('password.html', password=password)
 
+# Custom 404 Error
+@app.errorhandler(404)
+def not_found(e):
+  return render_template("404.html")
 
 @check_redis_alive
 def main():
